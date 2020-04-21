@@ -1,0 +1,60 @@
+<header>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</header>
+    
+<div class="container">
+
+    <div class="card mb-3">
+
+        <div class="card-body">
+            <form class="text-center" name="registerForm" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
+                <p class="h4">Sign up</p>
+
+                <div *ngIf='showAlert' class="alert text-left mt-4 alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{alertMessage}}</strong>
+                </div>
+    
+                <div class="form-row mb-4 mt-4">
+                    <div class="col">
+                      <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name" name="firtsName" ngModel required #firstName="ngModel" pattern = '[a-zA-Z]{1,}'>
+                    </div>
+                    <div class="col">
+                      <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name" name="lastName" ngModel required #lastName="ngModel" pattern = '[a-zA-Z]{1,}'>
+                    </div>
+                  </div>
+    
+                  <div class="text-center mt-3">
+                    <input type="email" id="defaultRegisterFormEmail" name="email" class="form-control" placeholder="E-mail"ngModel required #email="ngModel" pattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" name="password" ngModel required #password="ngModel" pattern = '(?=.*[0-9]).{6,}'>
+                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4 text-right">
+                        At least 6 characters and 1 digit
+                      </small>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <input  id="defaultRegisterFormNumber" name="phone" class="form-control" placeholder="Phone Number"ngModel  #phone="ngModel" pattern ='^(|\d{10,11})+$'>
+                        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4 text-right">
+                            Optional
+                          </small>
+                    </div>
+    
+                <div class="text-center">
+                <button  class="btn btn-block btn btn-success" type="submit" >
+                    Sign up</button>
+                </div>  
+    
+                <div  class="mt-3">Already have an account?
+                    <a href="/login">sign in</a>
+                </div>
+    
+            </form>
+    
+        </div>
+
+
+    </div>
+
+</div>

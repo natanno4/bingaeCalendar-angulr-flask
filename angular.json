@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "binge-calendar-angular"
+    }
+  },
+  "defaultProject": "binge-calendar-angular",
+  "cli": {
+    "analytics": false
+  }
 }
