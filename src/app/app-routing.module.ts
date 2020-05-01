@@ -5,14 +5,15 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard }  from './auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardNavigatorGuard } from './dashboard-navigator.guard';
-
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
 const routes: Routes = [
   {path : 'login', component : LoginComponent,  canActivate : [DashboardNavigatorGuard]},
   {path : 'register', component : RegisterComponent, canActivate : [DashboardNavigatorGuard]},
-  {path : "dashboard", component : DashboardComponent, canActivate: [AuthGuard]},
+  {path : "dashboard", component : DashboardComponent,
+  children: [{path: 'calendar',component: CalendarComponent}], canActivate: [AuthGuard]},
   {path : '', redirectTo :'/dashboard', pathMatch : 'full'},
   { path: '**', component: DashboardComponent}
 ];

@@ -1,0 +1,65 @@
+<div class="calendar">
+    <header>      
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <h3 class=""><span></span><strong>18 JAN – 24 JAN</strong> 2016</h3>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+      </header>
+      
+      <div class="outer">
+                <td></td>
+                <td class="past"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+      <table>
+        <thead>
+            <tr>
+            <th></th>
+            <th>Mon, 18</th>
+            <th>Tue, 19</th>
+            <th class="today">Wed, 20</th>
+            <th>Thu, 21</th>
+            <th>Fri, 22</th>
+          <th class="secondary">Sat, 23</th>
+          <th class="secondary">Sun, 24</th>
+        </tr>
+      </thead>
+      </table>
+    
+    <div class="wrap"> 
+      <table class="offset">
+        <tbody  *ngFor="let hour of hours; first as isFirst">
+              <tr>
+                <td class="headcol">{{hour}}</td>
+                <td></td>
+                <td></td>
+                <td class="past"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="headcol"></td>
+                <td></td>
+                <td></td>
+                <td class="past"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+             
+      </tbody>
+    </table>
+</div>
+
