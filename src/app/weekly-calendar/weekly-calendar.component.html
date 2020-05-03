@@ -14,52 +14,23 @@
       </header>
       
       <div class="outer">
-                <td></td>
-                <td class="past"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-      <table>
-        <thead>
-            <tr>
-            <th></th>
-            <th>Mon, 18</th>
-            <th>Tue, 19</th>
-            <th class="today">Wed, 20</th>
-            <th>Thu, 21</th>
-            <th>Fri, 22</th>
-          <th class="secondary">Sat, 23</th>
-          <th class="secondary">Sun, 24</th>
-        </tr>
-      </thead>
-      </table>
-    
-    <div class="wrap"> 
-      <table class="offset">
-        <tbody  *ngFor="let hour of hours; first as isFirst">
-              <tr>
-                <td class="headcol">{{hour}}</td>
-                <td></td>
-                <td></td>
-                <td class="past"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="headcol"></td>
-                <td></td>
-                <td></td>
-                <td class="past"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-             
-      </tbody>
-    </table>
-</div>
+            <div class="wrap mt-2">    
+                <table class="table table-borderless offset">
+                    <thead>
+                      <tr>
+                        <th style="width: 3em;"></th>  
+                        <th  *ngFor="let day of week">{{day}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let hour of hours; let j = index">
+                          <th class = "colhead"><span class ="hour">{{hour}}</span></th>
+                          <td class="colevent" *ngFor = "let day of daysInWeek ; let i = index"></td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
 
+            </div>    
+      
+        </div>
