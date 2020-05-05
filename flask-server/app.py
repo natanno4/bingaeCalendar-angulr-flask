@@ -3,8 +3,7 @@ from flask_cors import CORS
 import json
 import os
 import sys
-from .mysqlDbConnection import DbConnection
-from .userAppRequests import api
+from .appRequests.userAuthorization.userAppRequests import api
 
 
 
