@@ -4,6 +4,7 @@ import json
 import os
 import sys
 from .appRequests.userAuthorization.userAppRequests import api
+from .appRequests.events.eventSAppRequests import events_api
 
 
 
@@ -11,6 +12,7 @@ from .appRequests.userAuthorization.userAppRequests import api
 app = Flask(__name__)
 CORS(app)
 app.register_blueprint(api)
+app.register_blueprint(events_api)
      
 
 
