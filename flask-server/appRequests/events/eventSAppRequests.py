@@ -8,7 +8,7 @@ events_api = Blueprint('events_api', __name__)
 
 
 @events_api.route("/api/setEvent",methods= ["POST"])
-def login():
+def setEvent():
     if request.method == "POST":
         req = request.form
         user_id = req.get("user_id")
@@ -25,7 +25,18 @@ def login():
         db = MysqlDbConnection()
         queries = MysqlQueries()
         return queries.setEvents((user_id, date, start_time, end_time, content_type, discription, title, watch_platform),
-        db.get_db())    
+        db.get_db())
+
+@events_api.route("/api/deleteEvent",methods= ["POST"])
+def deleteEvent():
+    if request.method == "POST":
+        req = request.form
+        event_id = req.get("event_id")
+        if event_id is None:
+            return jsonify(error = 'true' , value ="none", message = "Incorrect value.")
+        db = MysqlDbConnection()
+        queries = MysqlQueries()
+        return queries.deleteEvent((event_id,), db.get_db())         
   
 
 

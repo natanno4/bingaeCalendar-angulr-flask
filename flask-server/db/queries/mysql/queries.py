@@ -58,6 +58,21 @@ class MysqlQueries(object):
         except Exception as err:
             return {'error': True , 'value':None, 'message':str(err)}
         finally:
-            cur.close()            
+            cur.close()
+
+    def deleteEvent(self,parmas,conn):
+        query = 'DELETE from events where event_id = %s'
+        try:
+            cur = conn.cursor()
+            cur.execute(query, parmas)
+            if cur.rowcount:
+                conn.commit()
+                return {'error': False , 'value':True, 'message': 'event has been deleted successfully'}
+            else:
+                return {'error': True , 'value':None, 'message':"error"}     
+        except Exception as err:
+            return {'error': True , 'value':None, 'message':str(err)}
+        finally:
+            cur.close()              
 
 
