@@ -1,4 +1,6 @@
-from ....utils import Utils
+from ....utils import Utils,DateTimeEncoder
+import json
+
 
 class MysqlQueries(object):
 
@@ -73,6 +75,21 @@ class MysqlQueries(object):
         except Exception as err:
             return {'error': True , 'value':None, 'message':str(err)}
         finally:
-            cur.close()              
+            cur.close()
+            
+    def getWeeklyEvent(self,parmas,conn):
+        query = 'select * from events where date between %s and %s  order by date'
+        try:
+            cur = conn.cursor()
+            cur.execute(query, parmas)
+            fetch_data = cur.fetchall()
+            if fetch_data is None:
+              return {'error': False , 'value': None, 'message':"no events"}
+            else:    
+              return {'error': False , 'value': json.dumps(fetch_data, cls=DateTimeEncoder), 'message':"ok"}   
+        except Exception as err:
+            return {'error': True , 'value':None, 'message':str(err)}
+        finally:
+            cur.close()                          
 
 

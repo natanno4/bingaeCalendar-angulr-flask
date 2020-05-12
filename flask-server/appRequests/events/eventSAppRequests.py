@@ -38,6 +38,19 @@ def deleteEvent():
         queries = MysqlQueries()
         return queries.deleteEvent((event_id,), db.get_db())         
   
+@events_api.route("/api/weeklyEvents",methods = ["GET"])
+def getWeeklyEvents():
+    if request.method == "GET":
+        req = request.args
+        start_date = req.get("start")
+        end_date = req.get("end")
+        if start_date is None or end_date is None:
+            return jsonify(error = 'true' , value ="none", message = "Incorrect value.")
+        db = MysqlDbConnection()
+        queries = MysqlQueries()
+        return queries.getWeeklyEvent((start_date, end_date), db.get_db())     
+
+
 
 
 
