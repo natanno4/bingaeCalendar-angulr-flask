@@ -1,9 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
 
 
 @Component({
@@ -18,17 +14,21 @@ export class MonthlyCalendarComponent implements OnInit {
 
   public value: Date;
   public focusedDate: Date;
+
+  @Output() dateToEmit = new EventEmitter<Date>();
   constructor() { }
 
 
   ngOnInit(): void {
     this.value = new Date();
     this.focusedDate = new Date();
+    this.dateToEmit.emit(this.value);
+
   }
 
 
   public onChange(date: Date): void {
-    console.log(date.toString());
+    this.dateToEmit.emit(date);
   }
 
 

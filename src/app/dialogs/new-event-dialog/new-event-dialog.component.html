@@ -1,0 +1,57 @@
+
+
+<form [formGroup]="form">
+	<mat-form-field style="width: 75%">
+		<input required placeholder="Add Title" matInput formControlName="title">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+    <mat-label>Type</mat-label>
+    <select matNativeControl required formControlName="type">
+        <option value="movie">Movie</option>
+        <option value="series">series</option>
+        <option value="TvShow">Tv Show</option>
+        <option value="sportEvent">Sport Event</option>
+      </select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Choose a start date</mat-label>
+        <input required formControlName="startDate" matInput [matDatepicker]="startPicker">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field style="margin-left:1em;">
+        <mat-label>Choose an end date</mat-label >
+        <input matInput required [matDatepicker]="endPicker" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker [startAt]="endDate"></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width: 20%;">
+		<input required placeholder="Start Time" matInput formControlName="startTime">
+    </mat-form-field>
+    
+    <mat-form-field style="margin-left: 1em; width: 20%;">
+		<input required placeholder="End Time" matInput formControlName="endTime">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width: 75%">
+		<input placeholder="Watch platform" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill"  style="width: 75%;">
+        <mat-label>Description</mat-label>
+        <textarea matInput style="resize: none;"></textarea>
+    </mat-form-field>
+
+
+</form>
+
+<mat-dialog-actions>
+    <button class="btn"(click)="close()">Close</button>
+    <button class="btn btn-primary" style="margin-left: 1em; " type = "submit"(click)="save()">Save</button>
+</mat-dialog-actions>

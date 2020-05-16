@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
+  selectedDate : Date;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getSelectedDate(date : Date){
+      this.selectedDate = date;
   }
 
 }

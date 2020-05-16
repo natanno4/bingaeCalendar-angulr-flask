@@ -54,7 +54,9 @@ class MysqlQueries(object):
             cur.execute(query, parmas)
             if cur.rowcount:
                 conn.commit()
-                return {'error': False , 'value':True, 'message': 'event has been saved successfully'}
+                cur.execute("SELECT LAST_INSERT_ID() as event_id;")
+                fetch_data = cur.fetchone()
+                return {'error': False , 'value':fetch_data, 'message': 'event has been saved successfully'}
             else:
                 return {'error': True , 'value':None, 'message':"error"}     
         except Exception as err:

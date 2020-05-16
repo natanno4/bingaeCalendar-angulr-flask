@@ -5,9 +5,9 @@
 
 <div class="row">
   <div class="col-sm-3">
-    <app-monthly-calendar></app-monthly-calendar>
+    <app-monthly-calendar (dateToEmit)="getSelectedDate($event)"></app-monthly-calendar>
   </div>
   <div class="col-sm-9">
-    <app-weekly-calendar></app-weekly-calendar>
+    <app-weekly-calendar [selectedDate] = "selectedDate"></app-weekly-calendar>
   </div>
 </div>

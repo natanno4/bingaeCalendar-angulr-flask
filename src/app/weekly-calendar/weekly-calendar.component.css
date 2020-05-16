@@ -74,11 +74,8 @@
     font-size: 0.675rem;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.5);
-    position: relative;
-    right: -8px;
-    text-align: right;
-    vertical-align: top;
-    top: -5px;
+    border: 0.5px solid #ddd;
+    align-self: center;
     
 }
 
@@ -92,4 +89,20 @@ tbody {
     height:100%;
     width: 100%;
     overflow-y: scroll;
+}
+
+.event {
+  background: #00B4FC;
+  color: white;
+  border-radius: 2px;
+  text-align: left;
+  font-size: 0.775rem;
+  overflow-x: hidden;
+  position: relative;
+  vertical-align:"top";
+}
+
+
+.event.double {
+  height: 120%;
 }
