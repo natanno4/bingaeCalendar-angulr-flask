@@ -56,8 +56,8 @@ export class EventsService {
 
   checkIfEventExist(time : Date, day : Date) : boolean{
     for(let event of this.events){
-      if(event.start_time.hours <= time.getHours() && event.start_time.minutes <= time.getMinutes()
-      && event.end_time.hours >= time.getHours()  && event.end_time.minutes >= time.getMinutes()){
+      if(event.start_date_time.getHours() <= time.getHours() && event.start_date_time.getMinutes() <= time.getMinutes()
+      && event.end_date_time.getHours() >= time.getHours()  && event.end_date_time.getMinutes() >= time.getMinutes()){
         return true;
       }
     }
