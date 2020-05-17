@@ -65,10 +65,11 @@ export class WeeklyCalendarComponent implements OnInit,OnChanges {
 
     dialogRef.afterClosed().subscribe(
       data =>{
+        if(data == undefined){return;}
         if(data["type"] == "addEvent"){
           let d = data["value"];
         } else{
-          
+
         }
       }
     )

@@ -48,7 +48,7 @@ class MysqlQueries(object):
 
 
     def setEvents(self,parmas,conn):
-        query = 'INSERT INTO events(user_id, date, start_time, end_time, type, discription, title, watch_platform) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'
+        query = 'INSERT INTO events(user_id, start_date,end_date, start_time, end_time, type, discription, title, watch_platform) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         try:
             cur = conn.cursor()
             cur.execute(query, parmas)
@@ -80,7 +80,7 @@ class MysqlQueries(object):
             cur.close()
             
     def getWeeklyEvent(self,parmas,conn):
-        query = 'select * from events where date between %s and %s  order by date'
+        query = 'select * from events where start_date between %s and %s  order by start_date'
         try:
             cur = conn.cursor()
             cur.execute(query, parmas)
